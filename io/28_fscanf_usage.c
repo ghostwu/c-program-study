@@ -30,5 +30,7 @@ int main( void ) {
 
 	printf( "%s\n%9ld\n%3.1f\n%c\n", s, money, f, sex );
 
+	fclose( stream );
+
 	return 0;
 }
