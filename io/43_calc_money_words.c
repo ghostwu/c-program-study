@@ -21,12 +21,12 @@ int main ( void ) {
 	char str[6] = "money";
 
 	do {
-		c = fgetc( stream );
+		c = getc( stream );
 		if( c == 'm' ) {
 			int i = 0;
 			sprintf( buff, "%c", c );
 			for ( i = 0; i < 4; i++ ){
-				c = fgetc( stream );	
+				c = getc( stream );	
 				sprintf( buff + ( i + 1 ), "%c", c );
 			}
 			printf( "buff=%s\n", buff );
