@@ -35,5 +35,18 @@ int main( void ) {
 		printf( "%d\t", arr[i] );
 	}
 	printf( "\n" );
+
+	printf( "请输入你要插入的值:" );
+	int insert_num;
+	scanf( "%d", &insert_num );
+	arr[count] = insert_num;
+	printf( "insert_num=%d\n", insert_num );
+	printf( "arr[%d]=%d\n", count, insert_num );
+	printf( "------------插入后-------------\n" );
+	for( int i = 0; i < 5; i++ ) {
+		printf( "%d\t", arr[i] );
+	}
+	printf( "\n" );
+	
 	return 0;
 }
