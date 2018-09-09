@@ -1,0 +1,54 @@
+全排列笔记
+一、递归实现
+从集合中依次选出每一个元素，作为排列的第一个元素，然后对剩余的元素进行全排列，如此递归处理，从而得到所有元素的全排列。以对字符串abc进行全排列为例，我们可以这么做：以abc为例
+固定a，求后面bc的排列：abc，acb，求好后，a和b交换，得到bac
+固定b，求后面ac的排列：bac，bca，求好后，c放到第一位置，得到cba
+固定c，求后面ba的排列：cba，cab。代码可如下编写所示
+
+------------------------------------------
+
+perm( a, 0, 3 )[begin=0, end=3]
+	1, i = 0 [begin=0]
+		perm( a, 1, 3 )[begin=1]	
+			1, i = 1[begin=1]
+				perm( a, 2, 3)[begin=2]
+					1, i = 2[begin=2]
+						perm( a, 3, 3 )[begin=3] [1,2,3]
+					2, i = 3[begin=2]
+			2, i = 2[begin=1] [1,2,3]
+				perm( a, 2, 3 )[begin=2] [1,3,2]
+					1, i = 2[begin=2]
+						perm( a, 3, 3 )[begin=3] [1,3,2]
+					2, i = 3[begin=2]
+			3, i = 3[begin=1] [1,2,3] {还原}
+	2, i = 1 [begin=0] {2,1,3}
+		perm( a, 1, 3 ) [begin=1] [2,1,3]
+			1, i = 1[begin=1]
+				perm( a, 2, 3 )[begin=2] [2,1,3]
+					1, i = 2[begin=2]
+						perm( a, 3, 3 )[begin=3] [2,1,3]
+					2, i = 3[begin=2]
+			2, i = 2[begin=1] [2,1,3]
+				perm( a, 2, 3)[begin=2] [2,3,1]
+					1, i = 2[begin=2]
+						perm( a, 3, 3 )[begin=3] [2,3,1]
+					2, i = 3[begin=2]
+			3, i = 3[begin=1] [2,1,3]{还原}
+	3, i = 2 [begin=0]{3,1,2}
+		perm( a, 1, 3 ) [begin=1] [3,1,2]
+			1, i = 1[begin=1]
+				perm( a, 2, 3 )[begin=2][3,1,2]
+					1, i = 2[begin=2]
+						perm( a, 3, 3 )[begin=3] [3,1,2]	
+					2, i = 3[begin=2]
+			2, i = 2[begin=1] [3,1,2]
+				perm( a, 2, 3 )[begin=2][3,2,1]
+					1, i = 2[begin=2]
+						perm( a, 3, 3 )[begin=3] [3,2,1]
+					2, i = 3[begin=2]
+			3, i = 3[begin=1] [3,1,2]{还原}
+	4, i = 3 [begin=0]
+
+
+
+
