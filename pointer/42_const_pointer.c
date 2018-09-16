@@ -6,5 +6,6 @@ int main( void ) {
 	char *pc = &c;
 	*pc = 'b';
 	printf( "pc=%c, c=%c\n", *pc, c );
+	c = 'd';
 	return 0;
 }
